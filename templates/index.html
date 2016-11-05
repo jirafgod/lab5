@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% for event in events %}
+	<div class="col-sm-4">
+    {% include 'events.html' %}
+    </div>
+{% endfor %}
+	
+{% endblock %}

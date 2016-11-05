@@ -1,0 +1,12 @@
+	<div class="text-center">
+    	<a {% if event.elect != 1 %} href="/event/{{ event.id }}"{% endif %} class="lead">{{ event.name }}</a>
+    	<p class="text-muted">Место проведения: {{ event.address }}</p>
+	</div>
+	<div class="caption {% if width != 100 %} text-center {% endif %}">
+    	<img src="{{ event.image }}" class="img-thumbnail" style="width: {{ width }}%; height: 400px;">
+    	<p class='text-primary'>{{ event.description }}</p>
+		<div class="center-block" style="width: {{ width }}%;">
+     		<p class='text-left {% if width != 100 %} col-md-4  {% else %} col-lg-4 {% endif %}'><a href="#" class="btn btn-default" role="button">Пойти </a></p>
+     		<p class="text-right">Уже пошло<span class="glyphicon glyphicon-ok">{{ event.will }}</span></p>
+     	</div>
+    </div>
