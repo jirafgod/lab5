@@ -40,7 +40,14 @@ class Example:
     def get(self):
         cursor = self.db_connection.cursor()
         cursor.execute("SELECT * from `example` WHERE 1;")
-        return cursor.fetchall()
+        #data =  cursor.fetchAll()
+        data = []
+        for user in cursor.fetchall():
+            self.name = user[1]
+            self.family = user[2]
+            self.god = user[3]
+            data.append({'name': self.name, 'family': self.family, 'god': self.god})
+        return data
     def insert(self, god):
         cursor = self.db_connection.cursor()
         cursor.execute("INSERT INTO `example`(`name`, `family`, `god`) VALUES (%s,%s,%s);", (self.name, self.family, god))
@@ -55,16 +62,17 @@ else:
 
 connection = connection("host1371925_rip", "WouHDWpq", "host1371925_lab6")
 connection.connect()
+print("GOOD CONNECT")
 with connection:
     user = Example(connection, name, family)
     if(user.count() != 0):
         print("Вы уже есть")
         sys.exit(0)
     user.insert(god)
-    users = user.get()
-    for user in users:
-        print(user[1], user[2], end = "")
-        if(user[3] == 1):
+    data = user.get()
+    for user in data:
+        print(user['name'], user['family'], end = "")
+        if(user['god'] == 1):
             print(" - Бог")
         else:
             print(" - Не Бог")"""

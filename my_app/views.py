@@ -1,6 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 from connection_class import connection, Example
+from my_app.models import example
 
 # Create your views here.
 from django.views import View
@@ -56,4 +57,8 @@ def laba6(request):
     with conn:
         user = Example(conn)
         users = user.get()
+    return render(request, 'laba6.html', {'users': users, 'title': 'Лаба6'})
+
+def get(request):
+    users = example.objects.all()
     return render(request, 'laba6.html', {'users': users, 'title': 'Лаба6'})

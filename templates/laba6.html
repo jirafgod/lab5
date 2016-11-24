@@ -3,11 +3,11 @@
 {% block content %}
 
 {% for user in users %}
-        {{ user.1 }} {{ user.2 }}
-        {% if user.3 == 1 %}
+        {{ user.name }} {{ user.family }}
+        {% if user.god == 1 %}
             - Бог
         {% else %}
-            Не Бог
+            - Не Бог
         {%endif%}
     </br>
 {% endfor %}

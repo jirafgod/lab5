@@ -23,4 +23,5 @@ urlpatterns = [
     url(r'^$', index),
     url(r'^event/(?P<p>\d+)', event),
     url(r'^laba6$', laba6),
+    url(r'^get$', get),
 ]
