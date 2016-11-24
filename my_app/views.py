@@ -1,5 +1,6 @@
 from django.http import HttpResponse
 from django.shortcuts import render
+from connection_class import connection, Example
 
 # Create your views here.
 from django.views import View
@@ -48,3 +49,11 @@ def index(request):
 def event(request, p):
     ev = events[int(p) - 1]
     return render(request, 'event.html', {'event': ev, 'width': 60})
+
+def laba6(request):
+    conn = connection("host1371925_rip", "WouHDWpq", "host1371925_lab6")
+    conn.connect()
+    with conn:
+        user = Example(conn)
+        users = user.get()
+    return render(request, 'laba6.html', {'users': users, 'title': 'Лаба6'})

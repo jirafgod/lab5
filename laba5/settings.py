@@ -76,8 +76,14 @@ WSGI_APPLICATION = 'laba5.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
+        'NAME': 'host1371925_lab6', # Or path to database file if using sqlite3.
+        'USER': 'host1371925_rip',                      # Not used with sqlite3.
+        'PASSWORD': 'WouHDWpq',                  # Not used with sqlite3.
+        'HOST': 'mysql23.hostland.ru',                      # Set to empty string for localhost. Not used with sqlite3.
+        'PORT': '3306',
+        'OPTIONS': {'charset': 'utf8'},
+        'TEST_CHARSET': 'utf8',                      # Set to empty string for default. Not used with sqlite3.
     }
 }
 

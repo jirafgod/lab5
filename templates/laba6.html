@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% for user in users %}
+        {{ user.1 }} {{ user.2 }}
+        {% if user.3 == 1 %}
+            - Бог
+        {% else %}
+            Не Бог
+        {%endif%}
+    </br>
+{% endfor %}
+    
+{% endblock %}
